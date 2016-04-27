@@ -1095,10 +1095,10 @@ higgs = np.loadtxt(data_dir,delimiter=",", skiprows=1)
 
 train_x, test_x = [], []
 train_y, test_y = numpy.array([]), numpy.array([])
-for i, higgs_p in enumerate(higgs[:500000]):
+for i, higgs_p in enumerate(higgs[:100000]):
     if i % 1000 == 0:
         print "%s data ended" % i
-    if i < 490000:
+    if i < 90000:
         train_x.append(higgs_p[1:22])
         train_y = numpy.append(train_y, higgs_p[0])
     else:

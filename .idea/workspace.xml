@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2afd89a3-eb3b-4841-b273-e05b5c52bf99" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Python-ELM" afterPath="$PROJECT_DIR$/Python-ELM" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ipython_notebook/fuck_dead_kernel.py" afterPath="$PROJECT_DIR$/ipython_notebook/fuck_dead_kernel.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ipython_notebook/higgs_dead_kernel.py" afterPath="$PROJECT_DIR$/ipython_notebook/higgs_dead_kernel.py" />
     </list>
     <ignored path="local_regression.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,8 +28,8 @@
       <file leaf-file-name="local_bayes.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/local_bayes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="46" column="42" selection-start-line="46" selection-start-column="12" selection-end-line="47" selection-end-column="32" />
+            <state relative-caret-position="540">
+              <caret line="55" column="42" selection-start-line="55" selection-start-column="42" selection-end-line="55" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -56,11 +57,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fuck_dead_kernel.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="fuck_dead_kernel.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ipython_notebook/fuck_dead_kernel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="1110" column="34" selection-start-line="1110" selection-start-column="34" selection-end-line="1110" selection-end-column="34" />
+            <state relative-caret-position="195">
+              <caret line="1086" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="1226" selection-end-column="37" />
+              <folding>
+                <element signature="e#14#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="higgs_dead_kernel.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ipython_notebook/higgs_dead_kernel.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="1099" column="33" selection-start-line="1099" selection-start-column="33" selection-end-line="1099" selection-end-column="33" />
               <folding>
                 <element signature="e#14#32#0" expanded="true" />
               </folding>
@@ -118,6 +131,7 @@
         <option value="$PROJECT_DIR$/Python-ELM/random_layer.py" />
         <option value="$PROJECT_DIR$/ipython_notebook/fuck_dead_kernel2.py" />
         <option value="$PROJECT_DIR$/ipython_notebook/fuck_dead_kernel.py" />
+        <option value="$PROJECT_DIR$/ipython_notebook/higgs_dead_kernel.py" />
       </list>
     </option>
   </component>
@@ -540,22 +554,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/local_bayes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="46" column="42" selection-start-line="46" selection-start-column="12" selection-end-line="47" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Python-ELM/elm_notebook.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Python-ELM/random_layer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -563,6 +561,14 @@
           <folding>
             <element signature="e#518#557#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ipython_notebook/fuck_dead_kernel2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="1104" column="23" selection-start-line="1104" selection-start-column="23" selection-end-line="1104" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -576,18 +582,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ipython_notebook/fuck_dead_kernel2.py">
+    <entry file="file://$PROJECT_DIR$/Python-ELM/elm_notebook.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="1104" column="23" selection-start-line="1104" selection-start-column="23" selection-end-line="1104" selection-end-column="23" />
+        <state relative-caret-position="210">
+          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/local_bayes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="55" column="42" selection-start-line="55" selection-start-column="42" selection-end-line="55" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ipython_notebook/fuck_dead_kernel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="1110" column="34" selection-start-line="1110" selection-start-column="34" selection-end-line="1110" selection-end-column="34" />
+        <state relative-caret-position="195">
+          <caret line="1086" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="1226" selection-end-column="37" />
+          <folding>
+            <element signature="e#14#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ipython_notebook/higgs_dead_kernel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="1099" column="33" selection-start-line="1099" selection-start-column="33" selection-end-line="1099" selection-end-column="33" />
           <folding>
             <element signature="e#14#32#0" expanded="true" />
           </folding>
