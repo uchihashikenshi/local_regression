@@ -1,10 +1,12 @@
 #coding:utf-8
+from __future__ import print_function
 import numpy
 import sys
 import six
 from scipy.spatial.distance import euclidean
 from fastdtw import fastdtw
 import pulp
+from sklearn.neighbors import NearestNeighbors
 import math
 
 from sklearn.ensemble import AdaBoostClassifier
@@ -20,13 +22,17 @@ from chainer import Link, Chain, ChainList
 
 class LocalBayes():
 
-    def __init__(self, nn_num, data_dim, max_dist):
+    def __init__(self, nn_num, data_dim, max_dist, metric, train):
         self.nn_num = nn_num
         self.data_dim = data_dim
         self.max_dist = max_dist
+        self.metric = metric
+
+        self.neigh = NearestNeighbors(n_neighbors=self.nn_num, metric=self.metric)
+        self.neigh.fit(train)
 
 
-    def get_nearest_n(self, train, label, test):
+    def get_nearest_n_dtw(self, train, label, test):
         """
         :param train: Training dataset. Must be pandas object.
         :param label: Training label.
@@ -63,12 +69,23 @@ class LocalBayes():
         nn_ts_array = numpy.array(nn_ts_ls)
 
         return nn_dist_array, nn_ts_array, nn_label_array
+    
+    
+    def get_nearest_n(self, train, label, test):
+        # neigh = NearestNeighbors(n_neighbors=self.nn_num, metric=metric)
+        # neigh.fit(train)
+
+        nn_ind_array = self.neigh.kneighbors(test)
+        nn_train = train[nn_ind_array[1][0]]
+        nn_label = label[nn_ind_array[1][0]]
+
+        return nn_train, nn_label
 
 
     def cal_prediction_nearest_n(self, nn_label_array, nn_ts_array, learner_name_ls, model_dict):
         """
         todo: local_bayes_predictと被ってる・・・
-        :param label: Label of nearest n data.
+        :param nn_label_array: Label of nearest n data.
         :param nn_ts_array: Nearest n data. Must be numpy.array object.
         :param learner_name_ls: List of learner name. For example, cnn, gbdt, logi, and more.
         :param model_dict: Dict of trained models.
@@ -85,7 +102,7 @@ class LocalBayes():
                 elif learner == 'gbdt':
                     pred_list.append(numpy.squeeze(model_dict['gbdt'].predict_proba(nn_ts_array[i]))[int(label)])
                 else:
-                    print "not enough parameters"
+                    print("not enough parameters")
                     break
 
             nn_pred_dict.update({'%s' % learner:pred_list})
@@ -134,7 +151,7 @@ class LocalBayes():
             elif learner == 'gbdt':
                 lb_pred += w_dict[learner] * numpy.squeeze(model_dict[learner].predict_proba(test_data.reshape(1, -1))).tolist()[1] ## singleデータなのでtest_data.reshape(1, -1)が必要
             else:
-                print "not enough parameters"
+                print("not enough parameters")
                 break
 
         return lb_pred
