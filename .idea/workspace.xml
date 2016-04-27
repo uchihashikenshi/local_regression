@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2afd89a3-eb3b-4841-b273-e05b5c52bf99" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Python-ELM" afterPath="$PROJECT_DIR$/Python-ELM" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ipython_notebook/localregression.ipynb" afterPath="$PROJECT_DIR$/ipython_notebook/localregression.ipynb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ipython_notebook/fuck_dead_kernel.py" afterPath="$PROJECT_DIR$/ipython_notebook/fuck_dead_kernel.py" />
     </list>
     <ignored path="local_regression.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,13 +44,47 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="random_layer.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="random_layer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Python-ELM/random_layer.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="450">
               <caret line="261" column="68" selection-start-line="261" selection-start-column="67" selection-end-line="261" selection-end-column="68" />
               <folding>
                 <element signature="e#518#557#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fuck_dead_kernel.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ipython_notebook/fuck_dead_kernel.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="1110" column="34" selection-start-line="1110" selection-start-column="34" selection-end-line="1110" selection-end-column="34" />
+              <folding>
+                <element signature="e#14#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fuck_dead_kernel2.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ipython_notebook/fuck_dead_kernel2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="1104" column="23" selection-start-line="1104" selection-start-column="23" selection-end-line="1104" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="data.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/cnn/data.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="26" column="45" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -82,6 +116,8 @@
         <option value="$PROJECT_DIR$/utils/local_bayes.py" />
         <option value="$PROJECT_DIR$/Python-ELM/elm_notebook.py" />
         <option value="$PROJECT_DIR$/Python-ELM/random_layer.py" />
+        <option value="$PROJECT_DIR$/ipython_notebook/fuck_dead_kernel2.py" />
+        <option value="$PROJECT_DIR$/ipython_notebook/fuck_dead_kernel.py" />
       </list>
     </option>
   </component>
@@ -155,6 +191,52 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="local_regression" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="local_regression" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="local_regression" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="local_regression" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="local_regression" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cnn" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="local_regression" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="local_regression" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ipython_notebook" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -480,6 +562,34 @@
           <caret line="261" column="68" selection-start-line="261" selection-start-column="67" selection-end-line="261" selection-end-column="68" />
           <folding>
             <element signature="e#518#557#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/cnn/data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="45" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ipython_notebook/fuck_dead_kernel2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="1104" column="23" selection-start-line="1104" selection-start-column="23" selection-end-line="1104" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ipython_notebook/fuck_dead_kernel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="1110" column="34" selection-start-line="1110" selection-start-column="34" selection-end-line="1110" selection-end-column="34" />
+          <folding>
+            <element signature="e#14#32#0" expanded="true" />
           </folding>
         </state>
       </provider>

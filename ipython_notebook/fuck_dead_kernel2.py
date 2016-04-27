@@ -1103,7 +1103,7 @@ train_y, test_y = np.split(mnist['target'], [N])
 
 ## init local bayes
 print "make kd tree・・・"
-nn_num=2000
+nn_num=1000
 print "nn_num: %s" % nn_num
 data_dim=train_x.shape[1]
 max_dist=0
