@@ -1110,7 +1110,7 @@ test_x = numpy.array(test_x)
 
 ## init local bayes
 print "make kd tree・・・"
-nn_num=1000
+nn_num=5000
 print "nn_num: %s" % nn_num
 data_dim=train_x.shape[1]
 max_dist=0
