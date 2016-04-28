@@ -1179,60 +1179,59 @@ for x, t in zip(test_x[:1000], test_y[:1000]):
     #     new_nn_train_array = numpy.array(new_nn_train_ls)
 
         ## kNN
-#         count_dict = collections.Counter(new_nn_label_array)
-#         pred_knn = int(count_dict.most_common(1)[0][0])
-# #         print "kNN: %s" % pred_knn
-#
-#         if abs(pred_knn - 1) < 0.1:
-#             pred_knn = label_1
-#         else:
-#             pred_knn = label_0
-#
-#         if pred_knn == t:
-#             correct_knn += 1.0
+    #         count_dict = collections.Counter(new_nn_label_array)
+    #         pred_knn = int(count_dict.most_common(1)[0][0])
+    # #         print "kNN: %s" % pred_knn
+    #
+    #         if abs(pred_knn - 1) < 0.1:
+    #             pred_knn = label_1
+    #         else:
+    #             pred_knn = label_0
+    #
+    #         if pred_knn == t:
+    #             correct_knn += 1.0
 
         ## logistic regression
 
-        pred_lr = int(lr.predict([x])[0])
+    pred_lr = int(lr.predict([x])[0])
 #         print "logi: %s" % pred_lr
 
-        if abs(pred_lr - 1) < 0.1:
-            pred_lr = label_1
-        else:
-            pred_lr = label_0
+    if abs(pred_lr - 1) < 0.1:
+        pred_lr = label_1
+    else:
+        pred_lr = label_0
 
-        if pred_lr == t:
-            correct_lr += 1.0
+    if pred_lr == t:
+        correct_lr += 1.0
 
-        ## bayesian logistic regressions
-
-
-
-        # get the logistic and moderated logistic probabilities
-        test_p = np.array([x])
-        bayes_prob_lin = bl.bayes_logistic_prob(test_p,w_posterior,H_posterior)
-
-        if bayes_prob_lin[0] > 0.50:
-            pred_br = label_1
-        else:
-            pred_br = label_0
-
-        if pred_br == t:
-            correct_br += 1.0
+    ## bayesian logistic regressions
 
 
 
-        if abs(elmc.predict(numpy.array([x]))[0] - 1.0) < 0.1:
-            pred_elm = label_1
-        else:
-            pred_elm = label_0
+    # get the logistic and moderated logistic probabilities
+    test_p = np.array([x])
+    bayes_prob_lin = bl.bayes_logistic_prob(test_p,w_posterior,H_posterior)
 
-        if pred_elm == t:
-            correct_elm += 1.0
+    if bayes_prob_lin[0] > 0.50:
+        pred_br = label_1
+    else:
+        pred_br = label_0
+
+    if pred_br == t:
+        correct_br += 1.0
+
+
+
+    if abs(elmc.predict(numpy.array([x]))[0] - 1.0) < 0.1:
+        pred_elm = label_1
+    else:
+        pred_elm = label_0
+
+    if pred_elm == t:
+        correct_elm += 1.0
 
     sum += 1.0
-
-#     if i % 10 == 0 & i != 0:
+    # if i % 10 == 0 & i != 0:
     print "iteration: %s" % i
     i += 1
 
