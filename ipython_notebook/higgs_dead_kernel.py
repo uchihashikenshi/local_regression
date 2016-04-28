@@ -1120,49 +1120,79 @@ localbayes = local_bayes.LocalBayes(nn_num=nn_num, data_dim=data_dim, max_dist=m
 print "start local bayes"
 correct, correct_knn, correct_lr, correct_br, correct_elm, sum = 0, 0, 0, 0, 0, 0
 i = 0
+
+lr = LogisticRegression(C=0.01, penalty='l2')
+lr.fit(train_x, train_y)
+
+# Set the number of data points and variables
+N = train_x.shape[0]
+p = train_x.shape[1]
+# randomly permute the data
+r = np.random.permutation(N)
+X = train_x[r, :]
+y = train_y[r]
+idx = np.arange(int(N / 10))
+
+w_prior = np.zeros(p)
+H_prior = np.diag(np.ones(p)) * 0.001
+
+w_posterior, H_posterior = bl.fit_bayes_logistic(y[idx], X[idx, :], w_prior, H_prior)
+
+# Now make this posterior our new prior
+w_prior = copy.copy(w_posterior)
+H_prior = copy.copy(H_posterior)
+
+## extreme learning machine
+elmc = ELMClassifier(n_hidden=1000,
+                     alpha=0.93,
+                     activation_func='multiquadric',
+                     regressor=linear_model.Ridge(),
+                     random_state=21398023)
+elmc.fit(train_x, train_y)
+
+
 for x, t in zip(test_x[:1000], test_y[:1000]):
-    ## search kNN points
-    nn_train_array, nn_label_array = localbayes.get_nearest_n(train_x, train_y, [x])
-
-    ## train model
-    if all([nn_label_array[0] == label for label in nn_label_array]):
-        pred = nn_label_array[0]
-        if pred == t:
-            correct += 1
-    else:
-        ## 2クラス分類に
-        count_label_dict = collections.Counter(nn_label_array)
-        label_1 = count_label_dict.most_common(2)[0][0]
-        label_0 = count_label_dict.most_common(2)[1][0]
-
-        new_nn_train_ls, new_nn_label_array = [], numpy.array([])
-        for nn_train, nn_label in zip(nn_train_array, nn_label_array):
-            if nn_label == label_1:
-                new_nn_train_ls.append(nn_train.tolist())
-                new_nn_label_array = numpy.append(new_nn_label_array, 1)
-            elif nn_label == label_0:
-                new_nn_train_ls.append(nn_train.tolist())
-                new_nn_label_array = numpy.append(new_nn_label_array, 0)
-            else:
-                continue
-        new_nn_train_array = numpy.array(new_nn_train_ls)
+    # ## search kNN points
+    # nn_train_array, nn_label_array = localbayes.get_nearest_n(train_x, train_y, [x])
+    #
+    # ## train model
+    # if all([nn_label_array[0] == label for label in nn_label_array]):
+    #     pred = nn_label_array[0]
+    #     if pred == t:
+    #         correct += 1
+    # else:
+    #     ## 2クラス分類に
+    #     count_label_dict = collections.Counter(nn_label_array)
+    #     label_1 = count_label_dict.most_common(2)[0][0]
+    #     label_0 = count_label_dict.most_common(2)[1][0]
+    #
+    #     new_nn_train_ls, new_nn_label_array = [], numpy.array([])
+    #     for nn_train, nn_label in zip(nn_train_array, nn_label_array):
+    #         if nn_label == label_1:
+    #             new_nn_train_ls.append(nn_train.tolist())
+    #             new_nn_label_array = numpy.append(new_nn_label_array, 1)
+    #         elif nn_label == label_0:
+    #             new_nn_train_ls.append(nn_train.tolist())
+    #             new_nn_label_array = numpy.append(new_nn_label_array, 0)
+    #         else:
+    #             continue
+    #     new_nn_train_array = numpy.array(new_nn_train_ls)
 
         ## kNN
-        count_dict = collections.Counter(new_nn_label_array)
-        pred_knn = int(count_dict.most_common(1)[0][0])
-#         print "kNN: %s" % pred_knn
-
-        if abs(pred_knn - 1) < 0.1:
-            pred_knn = label_1
-        else:
-            pred_knn = label_0
-
-        if pred_knn == t:
-            correct_knn += 1.0
+#         count_dict = collections.Counter(new_nn_label_array)
+#         pred_knn = int(count_dict.most_common(1)[0][0])
+# #         print "kNN: %s" % pred_knn
+#
+#         if abs(pred_knn - 1) < 0.1:
+#             pred_knn = label_1
+#         else:
+#             pred_knn = label_0
+#
+#         if pred_knn == t:
+#             correct_knn += 1.0
 
         ## logistic regression
-        lr = LogisticRegression(C=0.01, penalty='l2')
-        lr.fit(new_nn_train_array, new_nn_label_array)
+
         pred_lr = int(lr.predict([x])[0])
 #         print "logi: %s" % pred_lr
 
@@ -1176,23 +1206,7 @@ for x, t in zip(test_x[:1000], test_y[:1000]):
 
         ## bayesian logistic regressions
 
-        # Set the number of data points and variables
-        N = new_nn_train_array.shape[0]
-        p = new_nn_train_array.shape[1]
-        # randomly permute the data
-        r = np.random.permutation(N)
-        X = new_nn_train_array[r,:]
-        y = new_nn_label_array[r]
-        idx = np.arange(int(N/10))
 
-        w_prior = np.zeros(p)
-        H_prior = np.diag(np.ones(p))*0.001
-
-        w_posterior, H_posterior = bl.fit_bayes_logistic(y[idx], X[idx, :], w_prior, H_prior)
-
-        # Now make this posterior our new prior
-        w_prior = copy.copy(w_posterior)
-        H_prior = copy.copy(H_posterior)
 
         # get the logistic and moderated logistic probabilities
         test_p = np.array([x])
@@ -1206,13 +1220,7 @@ for x, t in zip(test_x[:1000], test_y[:1000]):
         if pred_br == t:
             correct_br += 1.0
 
-        ## extreme learning machine
-        elmc = ELMClassifier(n_hidden=1000,
-                        alpha=0.93,
-                        activation_func='multiquadric',
-                        regressor=linear_model.Ridge(),
-                        random_state=21398023)
-        elmc.fit(new_nn_train_array, new_nn_label_array)
+
 
         if abs(elmc.predict(numpy.array([x]))[0] - 1.0) < 0.1:
             pred_elm = label_1
